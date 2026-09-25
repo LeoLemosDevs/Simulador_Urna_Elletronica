@@ -240,13 +240,21 @@ document.addEventListener('fullscreenchange', (event) => {
     }
 });
 
-/* Responsividade Inteligente via Escala */
+/* Responsividade Inteligente via Zoom/Escala */
 function resizeUrna() {
     const urna = document.querySelector('.urna');
-    // A urna original tem 1050x580. Pegamos a proporção da tela com uma pequena folga
-    const scale = Math.min(window.innerWidth / 1100, window.innerHeight / 620);
-    // Impede que a urna fique absurdamente grande em monitores gigantes, mas encolhe em celulares
-    urna.style.transform = `scale(${Math.min(scale, 1)})`;
+    let scale = Math.min(window.innerWidth / 1100, window.innerHeight / 620);
+    if (scale > 1) scale = 1; // Não deixa a urna gigante no desktop
+    
+    // Zoom é suportado na maioria dos browsers mobile (Chrome/Safari) e refaz o layout real
+    urna.style.zoom = scale;
+    
+    // Fallback para Firefox (que não suporta zoom)
+    const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+    if (isFirefox) {
+        urna.style.transform = `scale(${scale})`;
+        urna.style.transformOrigin = 'center center';
+    }
 }
 
 window.addEventListener('resize', resizeUrna);
