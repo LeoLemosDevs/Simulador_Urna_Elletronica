@@ -239,3 +239,16 @@ document.addEventListener('fullscreenchange', (event) => {
         btnExitFullscreen.style.display = 'none';
     }
 });
+
+/* Responsividade Inteligente via Escala */
+function resizeUrna() {
+    const urna = document.querySelector('.urna');
+    // A urna original tem 1050x580. Pegamos a proporção da tela com uma pequena folga
+    const scale = Math.min(window.innerWidth / 1100, window.innerHeight / 620);
+    // Impede que a urna fique absurdamente grande em monitores gigantes, mas encolhe em celulares
+    urna.style.transform = `scale(${Math.min(scale, 1)})`;
+}
+
+window.addEventListener('resize', resizeUrna);
+// Chama a primeira vez para ajustar ao carregar a página
+resizeUrna();
