@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Simulador de Urna Eletrônica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="urna">
+        <div class="tela-container">
+            <div class="tela" id="tela">
+                <!-- TELA INICIAL (BRASÃO) -->
+                <div class="tela-inicial" id="tela-inicial">
+                    <img src="imagens/brasao_colorido.png" alt="Brasão República" class="brasao-centro">
+                    <div class="contagem" id="contagem">Iniciando em 10...</div>
+                </div>
+
+                <!-- TELA DE VOTAÇÃO -->
+                <div class="tela-votacao" id="tela-votacao" style="display: none;">
+                    <div class="d-1">
+                        <div class="d-1-left">
+                            <div class="d-1-1">
+                                <span>SEU VOTO PARA</span>
+                            </div>
+                            <div class="d-1-2" id="cargo">
+                                <span>DEPUTADO FEDERAL</span>
+                            </div>
+                            <div class="d-1-3" id="numeros">
+                                <!-- Números inseridos via JS -->
+                            </div>
+                            <div class="d-1-4" id="descricao">
+                                <!-- Informações inseridas via JS -->
+                            </div>
+                        </div>
+                        <div class="d-1-right">
+                            <div class="d-1-image" id="foto-candidato">
+                                <!-- Foto inserida via JS -->
+                            </div>
+                            <div class="d-1-image small" id="foto-vice" style="display: none;">
+                                <!-- Foto do vice inserida via JS -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-2" id="rodape">
+                        Aperte a tecla:<br/>
+                        CONFIRMA para CONFIRMAR este voto<br/>
+                        CORRIGE para REINICIAR este voto
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lateral">
+            <div class="logo">
+                <img src="imagens/brasao_pb.png" alt="Brasão República">
+                <h2>JUSTIÇA ELEITORAL</h2>
+            </div>
+            <div class="teclado-numerico">
+                <div class="linha-teclado">
+                    <button class="tecla" onclick="clicou('1')">1</button>
+                    <button class="tecla" onclick="clicou('2')">2</button>
+                    <button class="tecla" onclick="clicou('3')">3</button>
+                </div>
+                <div class="linha-teclado">
+                    <button class="tecla" onclick="clicou('4')">4</button>
+                    <button class="tecla" onclick="clicou('5')">5</button>
+                    <button class="tecla" onclick="clicou('6')">6</button>
+                </div>
+                <div class="linha-teclado">
+                    <button class="tecla" onclick="clicou('7')">7</button>
+                    <button class="tecla" onclick="clicou('8')">8</button>
+                    <button class="tecla" onclick="clicou('9')">9</button>
+                </div>
+                <div class="linha-teclado">
+                    <div class="tecla-spacer"></div>
+                    <button class="tecla" onclick="clicou('0')">0</button>
+                    <div class="tecla-spacer"></div>
+                </div>
+            </div>
+            <div class="linha-acoes">
+                <button class="tecla-acao branco" onclick="branco()">BRANCO</button>
+                <button class="tecla-acao corrige" onclick="corrige()">CORRIGE</button>
+                <button class="tecla-acao confirma" onclick="confirma()">CONFIRMA</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controles de Tela Cheia -->
+    <div class="fullscreen-controls">
+        <button onclick="openFullscreen()" id="btn-fullscreen" class="btn-fs">⛶ Tela Cheia</button>
+        <button onclick="closeFullscreen()" id="btn-exit-fullscreen" class="btn-fs" style="display: none;">✖ Sair da Tela Cheia</button>
+    </div>
+
+    <script src="etapas.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
