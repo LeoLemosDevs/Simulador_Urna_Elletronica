@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Simulador de Urna Eletrônica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="urna">
+        <div class="tela-container">
+            <div class="tela" id="tela">
+                <!-- O conteúdo da tela será manipulado pelo JavaScript -->
+                <div style="font-size: 24px; text-align: center; margin-top: 20%;">
+                    Aguardando...
+                </div>
+            </div>
+        </div>
+        <div class="lateral">
+            <div class="logo">
+                <img src="imagens/brasao_pb.png" alt="Brasão República">
+                <h2>JUSTIÇA ELEITORAL</h2>
+            </div>
+            <div class="teclado">
+                <div class="linha-teclado">
+                    <button class="tecla" onclick="clicou('1')">1</button>
+                    <button class="tecla" onclick="clicou('2')">2</button>
+                    <button class="tecla" onclick="clicou('3')">3</button>
+                </div>
+                <div class="linha-teclado">
+                    <button class="tecla" onclick="clicou('4')">4</button>
+                    <button class="tecla" onclick="clicou('5')">5</button>
+                    <button class="tecla" onclick="clicou('6')">6</button>
+                </div>
+                <div class="linha-teclado">
+                    <button class="tecla" onclick="clicou('7')">7</button>
+                    <button class="tecla" onclick="clicou('8')">8</button>
+                    <button class="tecla" onclick="clicou('9')">9</button>
+                </div>
+                <div class="linha-teclado">
+                    <div class="tecla-spacer"></div>
+                    <button class="tecla" onclick="clicou('0')">0</button>
+                    <div class="tecla-spacer"></div>
+                </div>
+                <div class="linha-acoes">
+                    <button class="tecla-acao branco" onclick="branco()">BRANCO</button>
+                    <button class="tecla-acao corrige" onclick="corrige()">CORRIGE</button>
+                    <button class="tecla-acao confirma" onclick="confirma()">CONFIRMA</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
