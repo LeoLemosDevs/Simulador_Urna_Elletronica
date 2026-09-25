@@ -203,43 +203,6 @@ function tocarSomTecla() {
     oscillator.stop(audioCtx.currentTime + 0.1);
 }
 
-/* Funções de Tela Cheia (Fullscreen API) */
-let elem = document.documentElement;
-let btnFullscreen = document.getElementById('btn-fullscreen');
-let btnExitFullscreen = document.getElementById('btn-exit-fullscreen');
-
-function openFullscreen() {
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) { /* Safari */
-        elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE11 */
-        elem.msRequestFullscreen();
-    }
-    btnFullscreen.style.display = 'none';
-    btnExitFullscreen.style.display = 'block';
-}
-
-function closeFullscreen() {
-    if (document.exitFullscreen) {
-        document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) { /* Safari */
-        document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { /* IE11 */
-        document.msExitFullscreen();
-    }
-    btnFullscreen.style.display = 'block';
-    btnExitFullscreen.style.display = 'none';
-}
-
-// Escuta mudanças no modo de tela cheia caso o usuário saia pelo 'Esc'
-document.addEventListener('fullscreenchange', (event) => {
-    if (!document.fullscreenElement) {
-        btnFullscreen.style.display = 'block';
-        btnExitFullscreen.style.display = 'none';
-    }
-});
-
 /* Responsividade Inteligente via Zoom/Escala */
 function resizeUrna() {
     const urna = document.querySelector('.urna');
