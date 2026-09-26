@@ -19,7 +19,7 @@ let etapas = [
         candidatos: [
             {
                 numero: '22026',
-                nome: 'ANANDA NORDESTINA',
+                nome: 'NORDESTINA ANANDA',
                 partido: 'PL',
                 fotos: [
                     { url: 'ananda.png' }
